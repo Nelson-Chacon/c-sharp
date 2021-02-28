@@ -24,7 +24,7 @@ namespace inventario
 
             for (int i = 0; i < 5; i++)
             {
-                Console.WriteLine (productos [i, 0] + " ||" + productos [i, 1] + " || "+productos[i, 2] + " || "+productos[i, 3]);
+                Console.WriteLine (productos [i, 0] + " |" + productos [i, 1] + " |"+productos[i, 2] + " | "+productos[i, 3]);
             }
         }
     static void movimiento_inventario(string codigo, int cantidad, string tipo_movimiento){//Conversion de texto a enteros
@@ -101,7 +101,7 @@ namespace inventario
         Console.WriteLine("*********************");
         Console.WriteLine("Ingrese el codigo del producto: ");
         codigo=Console.ReadLine();
-        Console.WriteLine("Ingrese la cantidad del en mal estado producto: ");
+        Console.WriteLine("Ingrese la cantidad del producto en mal estado: ");
         cantidad=Console.ReadLine();
         movimiento_cambio(codigo,Int32.Parse(cantidad),"+");
 }
@@ -114,7 +114,7 @@ namespace inventario
         Console.WriteLine("**************************************");
         Console.WriteLine("Ingrese el codigo del producto: ");
         codigo=Console.ReadLine();
-        Console.WriteLine("Ingrese la cantidad del que se cambiara producto: ");
+        Console.WriteLine("Ingrese la cantidad del producto que se cambiara: ");
         cantidad=Console.ReadLine();
         movimiento_cambio(codigo,Int32.Parse(cantidad),"-");
     }
