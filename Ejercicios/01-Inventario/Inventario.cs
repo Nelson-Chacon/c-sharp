@@ -1,0 +1,120 @@
+using System;
+using System.Collections.Generic;
+
+public class Inventario {
+
+    public List<Producto> ListaProducto { get; set; }
+    public Inventario()
+    {
+     ListaProducto = new List<Producto>();
+     Producto a=new Producto ("001","Iphone X", 0 , 5);
+     Producto b=new Producto ("002","Impresoras", 10 , 3);
+     Producto c=new Producto ("003","Teclados", 50 , 15);
+     Producto d=new Producto ("004","Rauters", 100 , 25);
+     Producto e=new Producto ("005","Monitor", 80 , 3);
+
+     ListaProducto.Add(a);
+     ListaProducto.Add(b);
+     ListaProducto.Add(c);
+     ListaProducto.Add(d);
+     ListaProducto.Add(e);
+    }
+    
+public void listarProductos(){
+            Console.Clear();
+            Console.WriteLine("");
+            Console.WriteLine("Listado de Producto");
+            Console.WriteLine("-------------------");
+            Console.WriteLine("CODIGO | DESCRIPCION | EXISTENCIA |PRODUCTO DANIADO ");
+
+     foreach (var producto in ListaProducto)
+        {
+            Console.WriteLine(producto.Codigo + " | " + producto.Descripcion +" | "+producto.Existencia.ToString() +" | "+ producto.ExistenciaProMal.ToString());
+        }
+}
+private void movimiento_inventario(string codigo, int cantidad, string tipo_movimiento){//Conversion de texto a enteros
+       foreach (var producto in ListaProducto)
+       {
+            if (producto.Codigo==codigo)
+                {
+                    if (tipo_movimiento == "+")
+                    {
+                        producto.Existencia=producto.Existencia+cantidad;
+                    }
+                    else
+                    {
+                         producto.Existencia=producto.Existencia- cantidad;
+                    }
+                }
+       }
+}
+       
+private void movimiento_cambio(string codigo, int cantidad, string tipo_movimiento){//Conversion de texto a enteros
+        foreach (var producto in ListaProducto)
+        {
+            if (producto.Codigo==codigo)
+                {
+                    if (tipo_movimiento == "+")
+                    {
+                        producto.ExistenciaProMal=producto.ExistenciaProMal+ cantidad;
+                    }
+                    else
+                    {
+                         producto.ExistenciaProMal=producto.ExistenciaProMal- cantidad;
+                    }
+                }
+        }
+}
+        
+public void ingreso_inventario(){//suma de inventarios
+        string codigo = "";
+        string cantidad= "";
+        Console.WriteLine("");
+        Console.WriteLine("Ingreso de Inventario");
+        Console.WriteLine("*********************");
+        Console.WriteLine("Ingrese el codigo del producto: ");
+        codigo=Console.ReadLine();
+        Console.WriteLine("Ingrese la cantidad del producto: ");
+        cantidad=Console.ReadLine();
+        movimiento_inventario(codigo,Int32.Parse(cantidad),"+");
+}   
+public void salida_inventario(){//suma de inventarios
+        string codigo = "";
+        string cantidad= "";
+        Console.WriteLine("");
+        Console.WriteLine("Salida de Inventario");
+        Console.WriteLine("*********************");
+        Console.WriteLine("Ingrese el codigo del producto: ");
+        codigo=Console.ReadLine();
+        Console.WriteLine("Ingrese la cantidad del producto: ");
+        cantidad=Console.ReadLine();
+        movimiento_inventario(codigo,Int32.Parse(cantidad),"-");
+}
+public void productoMalo(){// ajuste positivo Producto que se daña en la empresa o biene malo por defectos de fabrica
+        string codigo = "";
+        string cantidad= "";
+        Console.WriteLine("");
+        Console.WriteLine("Ingreso de Inventario");
+        Console.WriteLine("*********************");
+        Console.WriteLine("Ingrese el codigo del producto: ");
+        codigo=Console.ReadLine();
+        Console.WriteLine("Ingrese la cantidad del producto en mal estado: ");
+        cantidad=Console.ReadLine();
+        movimiento_cambio(codigo,Int32.Parse(cantidad),"+");
+}
+
+public void productoCambio(){//Ajuste negativo
+        string codigo = "";
+        string cantidad= "";
+        Console.WriteLine("");
+        Console.WriteLine("Salida de producto daniado para cambio");
+        Console.WriteLine("**************************************");
+        Console.WriteLine("Ingrese el codigo del producto: ");
+        codigo=Console.ReadLine();
+        Console.WriteLine("Ingrese la cantidad del producto que se cambiara: ");
+        cantidad=Console.ReadLine();
+        movimiento_cambio(codigo,Int32.Parse(cantidad),"-");
+    }
+
+
+}
