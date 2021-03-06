@@ -11,10 +11,12 @@ namespace _01_Inventario
 
             string opcion="";
             Inventario inventario =new Inventario();
+            Console.BackgroundColor = ConsoleColor.Black;
+            Console.ForegroundColor = ConsoleColor.Red;
             while (true)
             {
                 Console.Clear();
-                Console.WriteLine("SISTEMA DE INVENTARIO");
+                Console.WriteLine("SISTEMA DE INVENTARIO");//nombre del programa
                 Console.WriteLine("**********************");
                 Console.WriteLine("");
                 Console.WriteLine("1-> Productos");
@@ -23,13 +25,14 @@ namespace _01_Inventario
                 Console.WriteLine("4-> Producto con defectos de fabrica");
                 Console.WriteLine("5-> Cambiar productos con defectos");
                 Console.WriteLine("0-> Salir");
-                Console.WriteLine("Seleccione una opcion: ");
+                Console.WriteLine("Seleccione una opcion: ");//ingrese un numero de tipo entero
                 opcion=Console.ReadLine(); 
 
                 switch (opcion)
                 {
                     case "1":
-                    {
+                    {   Console.BackgroundColor = ConsoleColor.Green;
+                        Console.ForegroundColor = ConsoleColor.Black;
                         Console.Clear();
                         inventario.listarProductos();
                         Console.ReadLine();
@@ -37,6 +40,8 @@ namespace _01_Inventario
                     }
                     case "2":
                     {
+                        Console.BackgroundColor = ConsoleColor.DarkBlue ;
+                        Console.ForegroundColor = ConsoleColor.White;
                         Console.Clear();
                         inventario.ingreso_inventario();
                         Console.ReadLine();
@@ -44,20 +49,29 @@ namespace _01_Inventario
                     }
                     case "3":
                     {
+                        Console.BackgroundColor = ConsoleColor.DarkBlue ;
+                        Console.ForegroundColor = ConsoleColor.White;
                         Console.Clear();
                         inventario.salida_inventario();
+                        Console.ReadLine();
                         break;
                     }
                     case "4":
                     {
+                        Console.BackgroundColor = ConsoleColor.White;
+                        Console.ForegroundColor = ConsoleColor.Red;
                         Console.Clear();
                         inventario.productoMalo();
+                        Console.ReadLine();
                         break;
                     }
                     case "5":
                     {
+                        Console.BackgroundColor = ConsoleColor.White;
+                        Console.ForegroundColor = ConsoleColor.Red;
                         Console.Clear();
                         inventario.productoCambio();
+                        Console.ReadLine();
                         break;
                     }
                     

@@ -76,6 +76,8 @@ public void ingreso_inventario(){//suma de inventarios
         codigo=Console.ReadLine();
         Console.WriteLine("Ingrese la cantidad del producto: ");
         cantidad=Console.ReadLine();
+        Console.WriteLine("");
+        Console.WriteLine("PRODUCTO AGREGADO");
         movimiento_inventario(codigo,Int32.Parse(cantidad),"+");
 }   
 public void salida_inventario(){//suma de inventarios
@@ -86,7 +88,7 @@ public void salida_inventario(){//suma de inventarios
         Console.WriteLine("*********************");
         Console.WriteLine("Ingrese el codigo del producto: ");
         codigo=Console.ReadLine();
-        Console.WriteLine("Ingrese la cantidad del producto: ");
+        Console.WriteLine("Ingrese la cantidad del producto que saldra de inventario: ");
         cantidad=Console.ReadLine();
         movimiento_inventario(codigo,Int32.Parse(cantidad),"-");
 }
@@ -100,6 +102,8 @@ public void productoMalo(){// ajuste positivo Producto que se daña en la empres
         codigo=Console.ReadLine();
         Console.WriteLine("Ingrese la cantidad del producto en mal estado: ");
         cantidad=Console.ReadLine();
+        Console.WriteLine("");
+        Console.WriteLine("HAS AGREGADO PRODUCTOS DANIADO A TU INVENTARIO : "+cantidad);
         movimiento_cambio(codigo,Int32.Parse(cantidad),"+");
 }
 
@@ -113,6 +117,8 @@ public void productoCambio(){//Ajuste negativo
         codigo=Console.ReadLine();
         Console.WriteLine("Ingrese la cantidad del producto que se cambiara: ");
         cantidad=Console.ReadLine();
+        Console.WriteLine("");
+        Console.WriteLine("HAS LOGRADO CAMBIAR PRODUCTOS DANIADO");
         movimiento_cambio(codigo,Int32.Parse(cantidad),"-");
     }
 
