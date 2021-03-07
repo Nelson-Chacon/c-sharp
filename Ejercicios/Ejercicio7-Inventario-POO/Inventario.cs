@@ -80,7 +80,7 @@ public void ingreso_inventario(){//suma de inventarios
         Console.WriteLine("PRODUCTO AGREGADO");
         movimiento_inventario(codigo,Int32.Parse(cantidad),"+");
 }   
-public void salida_inventario(){//suma de inventarios
+public void salida_inventario(){//Resta  de inventarios
         string codigo = "";
         string cantidad= "";
         Console.WriteLine("");
