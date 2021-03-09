@@ -3,16 +3,21 @@ using System.Collections.Generic;
 public class DatosPrueba
 {
     public List<Producto> ListaProductos{ get; set; }
+    public List<Cliente>  ListaClientes { get; set; }
+    public List <Vendedor> ListaVendedores{ get; set; }
 
     public DatosPrueba()
     {
         ListaProductos = new List<Producto>();
         CargarProducto();
+        ListaClientes = new List<Cliente>();
+
+        ListaVendedores = new List<Vendedor>();
         
     }
     private void CargarProducto(){
 
-        Producto a=new Producto (2001,"Mause",150.5);
+        Producto a=new Producto (001,"Mause",150.5);
         ListaProductos.Add(a);
         Producto b=new Producto (002,"Teclado",300.45);
         ListaProductos.Add(b);
