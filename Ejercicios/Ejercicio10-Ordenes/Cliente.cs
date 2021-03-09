@@ -3,13 +3,14 @@ using System;
 
 public class Cliente:Persona
 {
-    public string Telefono { get; set; }
+    public double Saldo { get; set; }
 
-    public Cliente(int codigo, string nombre, string telefono)
+    public Cliente(int codigo, string nombre, string telefono, double saldo)
     {
         Codigo=codigo;
         Nombre= nombre;
         Telefono = telefono;
+        Saldo =saldo;
         
     }
 }
