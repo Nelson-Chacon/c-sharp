@@ -9,6 +9,8 @@ public class Producto
 
     public Producto(int codigo,string descripcion, double precio )
     {
-        
+        Codigo=codigo;
+        Descripcion=descripcion;
+        Precio=precio;
     }
 }

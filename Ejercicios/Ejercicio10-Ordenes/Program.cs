@@ -6,7 +6,8 @@ namespace Ejercicio10_Ordenes
     {
         static void Main(string[] args)
         {
-            Console.WriteLine("Hello World!");
+            Cliente c=new Cliente(123 ,"Maria" , "213123" );
+            c.EnviarNotificacion();
         }
     }
 }
