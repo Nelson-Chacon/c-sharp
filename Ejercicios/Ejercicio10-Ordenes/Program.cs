@@ -32,8 +32,12 @@ namespace Ejercicio10_Ordenes
                 case "2" :
                     break;
                 case "3" :
+                    datos.ListarCliente();
+                    Console.ReadLine();
                     break;
                 case "4" :
+                    datos.ListarVendedores();
+                    Console.ReadLine();
                     break;
                 case "5" :
                     break;

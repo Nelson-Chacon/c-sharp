@@ -11,4 +11,5 @@ public class Vendedor: Persona
         CodigoVendedor=codigoVendedor;
     }
     
+    
 }
