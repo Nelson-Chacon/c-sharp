@@ -26,16 +26,22 @@ namespace Ejercicio10_Ordenes
             switch (opcion)
             {
                 case "1" :
+                    Console.Clear();
                     datos.ListarProductos();
                     Console.ReadLine();
                     break;
                 case "2" :
+                    Console.Clear();
+                    datos.crearOrdenes();
+                    Console.ReadLine();
                     break;
                 case "3" :
+                    Console.Clear();
                     datos.ListarCliente();
                     Console.ReadLine();
                     break;
                 case "4" :
+                    Console.Clear();
                     datos.ListarVendedores();
                     Console.ReadLine();
                     break;
