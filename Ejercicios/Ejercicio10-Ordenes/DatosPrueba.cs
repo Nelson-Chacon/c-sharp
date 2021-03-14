@@ -65,15 +65,15 @@ public class DatosPrueba
         {
            Console.WriteLine(clientes.Codigo + " | "+clientes.Nombre+" | "+clientes.Telefono+" | "+clientes.Saldo); 
         }
-        
+        Console.ReadLine();
     }
     private void cargarVendedor()
     {
-        Vendedor v1=new Vendedor (001,"Maria","v001");
+        Vendedor v1=new Vendedor (001,"Pedro","v001");
         ListaVendedores.Add(v1);
-        Vendedor  v2=new Vendedor (002,"Jose","v002");
+        Vendedor  v2=new Vendedor (002,"Roberto","v002");
         ListaVendedores.Add(v2);
-        Vendedor  v3=new Vendedor (003,"Dario","v 003");
+        Vendedor  v3=new Vendedor (003,"Juan Carlos","v 003");
         ListaVendedores.Add(v3);
         
     }
@@ -81,7 +81,7 @@ public class DatosPrueba
     {
         
         Console.Clear();
-        Console.WriteLine("LISTA DE CLIENTES");
+        Console.WriteLine("LISTA DE VENDEDORES");
         Console.WriteLine("=================");
         Console.WriteLine("");
         Console.WriteLine("CODIGO | NOMBRE DEL VENDEDOR| CODIGO DEL VENDEDOR");
@@ -89,7 +89,7 @@ public class DatosPrueba
         {
            Console.WriteLine(vendedor.Codigo + " | "+vendedor.Nombre+" | "+vendedor.CodigoVendedor); 
         }
-        
+        Console.ReadLine();
     }
 
     public void crearOrdenes()
@@ -101,44 +101,91 @@ public class DatosPrueba
         Console.WriteLine("Ingrese el codigo del Cliente");
         codigoCliente=Console.ReadLine();
 
-        Console.WriteLine("Ingrese el codigo del Vendedor");
-        codigoVendedor=Console.ReadLine();
         Cliente cliente = ListaClientes.Find(v=>v.Codigo.ToString()==codigoCliente);
         if (cliente==null)
         {
             Console.WriteLine("Cliente No encontrado");
+            Console.ReadLine();
             return;
         }
-        Vendedor vendedor = ListaVendedores.Find(v=>v.CodigoVendedor == codigoVendedor);
+        else
+        {
+            Console.WriteLine("Cliente: "+ cliente.Nombre);
+        }
+        Console.WriteLine("");
+        Console.WriteLine("Ingrese el codigo del Vendedor");
+        codigoVendedor=Console.ReadLine();
+        Vendedor vendedor = ListaVendedores.Find(v=>v.Codigo.ToString() == codigoVendedor);
         if (vendedor==null)
         {
             Console.WriteLine("vendedor No encontrado");
+            Console.ReadLine();
             return;
         }
+        else
+        {
+            Console.WriteLine("Vendedor: "+ vendedor.Nombre);
+        }
+        Console.WriteLine("");
         int nuevoCodigo =ListaOrdenes.Count + 1;
         Orden OrdenNueva =new Orden(nuevoCodigo, DateTime.Now ,"SPS"+nuevoCodigo,cliente,vendedor);
         ListaOrdenes.Add(OrdenNueva);
 
         while (true)
-        {  Console.WriteLine("Ingrese el producto: ");
+        {  Console.WriteLine("Ingrese el codigo del producto: ");
            string codigoProducto = Console.ReadLine();
            Producto producto = ListaProductos.Find(p=>p.Codigo.ToString() == codigoProducto);
             if (producto==null)
             {
             Console.WriteLine("Producto No encontrado");
-            return;
+            Console.ReadLine();
             }else
             {
                 OrdenNueva.agregarProducto(producto);
+                Console.WriteLine("Producto Agregado: "+ producto.Descripcion + " con precio de: "+ producto.Precio);
             }
-
+            string continuar = "";
             Console.WriteLine("Desea continuar (s/n): ");
-            string continuar = Console.ReadLine();
+            continuar=Console.ReadLine();
             if (continuar.ToLower()== "n")
             {
                 break;
             }
 
         }
+        Console.WriteLine("");
+        Console.WriteLine("El Subtotal de la orden es: "+OrdenNueva.Subtotal);
+        Console.WriteLine("Impuesto total: "+OrdenNueva.Impuesto);
+        Console.WriteLine("El total de la orden es: "+OrdenNueva.Total);
+        Console.ReadLine();
+    }
+    public void ListarOrdenes()
+    {
+
+        Console.Clear();
+        Console.WriteLine("             LISTA DE ORDENES");
+        Console.WriteLine("             =================");
+        Console.WriteLine("Codigo de la orden | Fecha | Total de la orden");
+       Console.WriteLine("===============================================");
+        Console.WriteLine("             Cliente|Vendedor");
+        Console.WriteLine("             ================");
+        Console.WriteLine("");
+        foreach (var orden in ListaOrdenes)
+        {
+            Console.WriteLine(orden.Codigo+" | "+orden.Fecha+" | "+orden.Total );
+            Console.WriteLine(orden.Cliente.Nombre+" | "+orden.Vendedor.Nombre);
+            foreach (var detalle in orden.ListaOrdenDetalle)
+            {
+                Console.WriteLine("     "+detalle.Producto.Descripcion+" |"+detalle.Precio);
+                
+            }
+        Console.WriteLine("");
+        Console.WriteLine("El Subtotal de la orden es: "+orden.Subtotal);
+        Console.WriteLine("Impuesto total: "+orden.Impuesto);
+        Console.WriteLine("El total de la orden es: "+orden.Total);
+        Console.WriteLine("");
+        }
+       Console.ReadLine();
+
     }
 }

@@ -33,19 +33,18 @@ namespace Ejercicio10_Ordenes
                 case "2" :
                     Console.Clear();
                     datos.crearOrdenes();
-                    Console.ReadLine();
                     break;
                 case "3" :
                     Console.Clear();
                     datos.ListarCliente();
-                    Console.ReadLine();
                     break;
                 case "4" :
                     Console.Clear();
                     datos.ListarVendedores();
-                    Console.ReadLine();
                     break;
                 case "5" :
+                    Console.Clear();
+                    datos.ListarOrdenes();
                     break;
 
                 default:
