@@ -7,8 +7,4 @@ public class Persona//calse base
 
     public string Telefono { get; set; }
 
-    public void EnviarNotificacion()
-    {
-        Console.WriteLine("Correo enviado a: "+" "+Nombre);
-    }
 }
