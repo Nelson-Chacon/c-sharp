@@ -5,7 +5,6 @@ public class DatosPrueba
     public List<Producto> ListaProductos{ get; set; }
     public List<Cliente>  ListaClientes { get; set; }
     public List<Vendedor> ListaVendedores{ get; set; }
-
     public List<Orden> ListaOrdenes { get; set; }
 
     public DatosPrueba()
