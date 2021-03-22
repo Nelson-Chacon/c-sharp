@@ -7,7 +7,7 @@ namespace EjercicioAnimales
         public string Raza{ get; set; }
 
         public bool Ladrar{ get; set; }
- 
+        
 
         public Perro(string nombre,string sexo,int edad,int patas,string reproduccion,string desplazamiento,string raza)
         {
@@ -22,7 +22,7 @@ namespace EjercicioAnimales
         }
         public Perro()
         {
-            
+                
         }
         public void ladrar()
         {

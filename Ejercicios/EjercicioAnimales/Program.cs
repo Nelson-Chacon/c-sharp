@@ -6,8 +6,9 @@ namespace EjercicioAnimales
     {
         static void Main(string[] args)
         {
-            string opcion="";
-            TodoAnimales a = new TodoAnimales();
+             string opcion="";
+            ListaAnimales a = new ListaAnimales();
+            
             while (true)
             {
             Console.WriteLine("     Animales");
@@ -19,28 +20,28 @@ namespace EjercicioAnimales
             Console.WriteLine("4->Aguila");
             Console.WriteLine("5->Loro");
             Console.WriteLine("6->Pez Globo");
-            Console.WriteLine("Seleccione una Opncion: ");
+            Console.WriteLine("0->Salir");
+            Console.WriteLine("Seleccione una Opcion: ");
             opcion=Console.ReadLine();
             switch (opcion)
             {
                 case "1":
-                a.perro();
-
+                a.ListarPerros();
                 break;
                 case "2":
-                a.gato();
+                a.ListarGatos();
                 break;
                 case "3":
-                a.monos();
+                a.ListarMonos();
                 break;
                 case "4":
-                a.aguila();
+                a.ListarAguila();
                 break;
                 case "5":
-                a.loro();
+                a.ListarLoro();
                 break;
                 case "6":
-                a.pezGlobo();
+                a.ListarPezGlobo();
                 break;
 
                 default:

@@ -42,8 +42,10 @@ namespace Animales
         Console.WriteLine("NOMBRE | SEXO | EDAD | PATAS | REPRODUCCION | DESPLAZAMIENTO");
         
         foreach (var perros in ListaPerro)
+
         {
-            Console.WriteLine(perros.Nombre+" | "+perros.Sexo+" | "+perros.Edad+" | "+perros.Patas+" | "+perros.Reproduccion+" | "+perros.Desplazamiento+" | "+perros.Comer);
+            perros.Alimentacion();
+            Console.WriteLine(perros.Comer+" | "+perros.Sexo+" | "+perros.Edad+" | "+perros.Patas+" | "+perros.Reproduccion+" | "+perros.Desplazamiento+" | "+perros.Comer);
         }
         Console.ReadLine();
     }
