@@ -11,6 +11,15 @@ namespace EjercicioAnimales
       Edad=edad;
       ColorPlumaje=colorPlumaje;  
     }
+    public Aguila(string nombre)
+    {
+        Nombre=nombre;
+    }
+
+    public Aguila()
+    {
+        
+    }
     public void volarAlto()
     {
         VolarAlto=true;

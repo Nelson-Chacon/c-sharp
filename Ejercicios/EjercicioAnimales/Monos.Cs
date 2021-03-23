@@ -14,6 +14,12 @@ namespace EjercicioAnimales
             Desplazamiento=desplazamiento; 
             
         }
+        public Monos(string nombre,int patas, string reproduccion)
+        {
+            Nombre=nombre;
+            Reproduccion=reproduccion;
+            Patas=patas;
+        }
         
          public void maulla()
         {

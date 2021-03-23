@@ -13,6 +13,11 @@ namespace EjercicioAnimales
             Reproduccion=reproduccion;
             Desplazamiento=desplazamiento;
         }
+
+        public Gatos()
+        {
+            
+        }
         public void maullar()
         {
             Maullar=true;

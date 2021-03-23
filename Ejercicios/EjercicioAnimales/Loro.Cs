@@ -10,8 +10,12 @@ namespace EjercicioAnimales
       Nombre=nombre;
       Sexo=sexo;
       Edad=edad;
-      Comer=true;
       ColorPlumaje=colorPlumaje;  
+      
+    }
+    public Loro()
+    {
+      
     }
     public void hablar()
     {

@@ -43,6 +43,9 @@ namespace EjercicioAnimales
         ListaPerro.Add(b);
         Perro c = new Perro ("Princesa", "Hembra" , 1, 4,"Viviparo","Digitígrados","Chihuahua");
         ListaPerro.Add(c);
+        Perro d = new Perro ("Toby", 4,"Hosky");
+        ListaPerro.Add(d);
+
     }
 
     public void ListarPerros()
@@ -96,6 +99,8 @@ namespace EjercicioAnimales
         ListaMono.Add(a);
         Monos b = new Monos ("King Kong", "Macho" , 5, 2,"Viviparo","Plantígrados");
         ListaMono.Add(b);
+        Monos c = new Monos ("Jorch",2,"Viviparo");
+        ListaMono.Add(c);
  
     }
 
@@ -125,6 +130,8 @@ namespace EjercicioAnimales
         ListaAguila.Add(b);
         Aguila c = new Aguila("Águila harpía", "Hembra" , 1,"Cafe");
         ListaAguila.Add(c);
+        Aguila d = new Aguila("Águila real");
+        ListaAguila.Add(d);
     }
     public void ListarAguila()
     {
@@ -146,7 +153,7 @@ namespace EjercicioAnimales
     {
         Loro a = new Loro("Cacatua", "Macho" , 3,"Verde");
         ListaLoro.Add(a);
-        Loro b = new Loro ("Paquito", "Macho" , 2,"Verde");
+        Loro b = new Loro ("Paquito", "Macho",4,"Verde");
         ListaLoro.Add(b);
         Loro c = new Loro("Blu", "Hembra" , 1,"Verde");
         ListaLoro.Add(c);

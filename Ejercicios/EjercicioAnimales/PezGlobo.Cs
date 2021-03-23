@@ -14,6 +14,10 @@ namespace EjercicioAnimales
             
         }
 
+        public PezGlobo()
+        {
+            
+        }
         public void inflarce()
         {
             Inflarce=true;
