@@ -3,11 +3,12 @@ using System.Collections.Generic;
 using System.Linq;
 
 namespace UNAH_VS
+
 {
     class ListaClases
     {
         int matriculadosAdministracion=0;
-        int MatriculadosEconomia=0;
+        int matriculadosEconomia=0;
         int matriculadosInformatica=0;
         
         public List<Administracion> ListaAdministracion { get; set; }
@@ -99,13 +100,12 @@ namespace UNAH_VS
         private void informatica()
         {
             Informatica a =new Informatica ("A-012", "Introducion a la informatica","Carmen Salgado","07:00 - 08:00",3);
-            Informatica b =new Informatica ("A-012", "Introducion a la informatica","Carmen Salgado","17:00 - 21:00",30);
-            Informatica c =new Informatica ("A-023", "Taller de Hardware I","Hector Garcia","09:00 - 10:00",30);
-            Informatica d =new Informatica ("A-033", "Metodologia de la Programacion","Jorge Hernandez","07:00 - 08:00",30);
-            Informatica e =new Informatica ("A-044", "Lenguaje de Programación I.","Igor Mejia","11:00 - 12:00",30);
-            Informatica f =new Informatica ("A-044", "Lenguaje de Programación I.","Igor Mejia","12:00 - 13:00",30);
-            Informatica g =new Informatica ("A-054", "Taller de Hardware II","Juan Mejia","14:00 - 15:00",30);
-            Informatica h =new Informatica ("IA-065", "Lenguaje de Programación II.","Bilys Fernandez","19:00 - 20:00",30);
+            Informatica b =new Informatica ("A-023", "Taller de Hardware I","Hector Garcia","09:00 - 10:00",30);
+            Informatica c =new Informatica ("A-033", "Metodologia de la Programacion","Jorge Hernandez","07:00 - 08:00",30);
+            Informatica d =new Informatica ("A-044", "Lenguaje de Programación I.","Igor Mejia","11:00 - 12:00",30);
+            Informatica e =new Informatica ("A-044", "Lenguaje de Programación I.","Igor Mejia","12:00 - 13:00",30);
+            Informatica f =new Informatica ("A-054", "Taller de Hardware II","Juan Mejia","14:00 - 15:00",30);
+            Informatica g =new Informatica ("IA-065", "Lenguaje de Programación II.","Bilys Fernandez","19:00 - 20:00",30);
 
             ListaInformatica.Add(a);
             ListaInformatica.Add(b);
@@ -114,7 +114,6 @@ namespace UNAH_VS
             ListaInformatica.Add(e);
             ListaInformatica.Add(f);
             ListaInformatica.Add(g);
-            ListaInformatica.Add(h);
         }
     public void ListadeInformatica()
         {
@@ -150,8 +149,6 @@ ListadeEconomia();
 Console.WriteLine("");
 Console.WriteLine("");
 ListadeInformatica();
-Console.ReadLine();
-
 }
 
 public void agregar()
@@ -170,6 +167,7 @@ public void agregar()
 
 public void matriculaUNAHVS(string cuenta)
 {
+    Informatica a = new Informatica();
     string departamento="";
     string codigo="";
     string matricular="";
@@ -185,7 +183,6 @@ if (cuenta == "20192001567" ||cuenta == "20202000864" ||cuenta == "20122003477" 
         departamento=Console.ReadLine();
 if (departamento.ToLower() == "administracion")
     {
-    Console.Clear();
     Console.WriteLine("Ingrese el condigo de su clase:");
     codigo=Console.ReadLine();
     foreach (var administracion in ListaAdministracion)
@@ -194,21 +191,22 @@ if (departamento.ToLower() == "administracion")
             {
                     Console.WriteLine("Asignatura: "+administracion.Nombre+" Horario: "+administracion.Hora);
                     Console.WriteLine("Cupos Disponibles: "+administracion.Cupos);
-                    Console.WriteLine("Decea matricular su clase (s/n): ");
-                    matricular= Console.ReadLine();
-                    if (matricular.ToLower() == "s")
-                    {
-                        administracion.Cupos--;
-                        Console.WriteLine("Se ha matriculado exitosamente");
-                        matriculadosAdministracion++ ;
-                   
-                    }
-                    else if (administracion.Cupos == 0)
+                    if (administracion.Cupos == 0)
                     {
                      Console.WriteLine("NO HAY CUPOS");
-                     Console.ReadLine(); 
+                     Console.ReadLine();
                     }
-                    Console.ReadLine();
+                    else 
+                    {
+                        Console.WriteLine("Decea matricular su clase (s/n): ");
+                        matricular= Console.ReadLine();
+                        if (matricular.ToLower() == "s")
+                        administracion.Cupos--;
+                        Console.WriteLine("Se ha matriculado exitosamente");
+                        matriculadosAdministracion++;
+                        Console.ReadLine();
+                    }
+                    
             }
            
        }
@@ -226,19 +224,22 @@ if (departamento.ToLower() == "administracion")
                     Console.WriteLine("Asignatura: "+economia.Nombre+" Horario: "+economia.Hora);
                     Console.WriteLine("Cupos Disponibles: "+economia.Cupos);
                     Console.WriteLine("Decea matricular su clase (s/n): ");
-                    matricular= Console.ReadLine();
-                    if (matricular.ToLower() == "s")
-                    {
-                        economia.Cupos--;
-                        Console.WriteLine("Se ha matriculado exitosamente");
-                        MatriculadosEconomia++ ;
-                   
-                    }
-                    else if (economia.Cupos == 0)
+                    if (economia.Cupos == 0)
                     {
                      Console.WriteLine("NO HAY CUPOS");
+                     Console.ReadLine();
                     }
+                    else 
+                    {
+                        Console.WriteLine("Decea matricular su clase (s/n): ");
+                        matricular= Console.ReadLine();
+                        if (matricular.ToLower() == "s")
+                        economia.Cupos--;
+                        Console.WriteLine("Se ha matriculado exitosamente");
+                        matriculadosEconomia++;
                         Console.ReadLine();
+                    }
+                        
             }
        }
         
@@ -254,30 +255,38 @@ if (departamento.ToLower() == "administracion")
                     Console.Clear();
                     Console.WriteLine("Asignatura: "+informatica.Nombre+" Horario: "+informatica.Hora);
                     Console.WriteLine("Cupos Disponibles: "+informatica.Cupos);
-                    Console.WriteLine("Decea matricular su clase (s/n): ");
-                    matricular= Console.ReadLine();
-                    if (matricular.ToLower() == "s")
+                    
+                    if (informatica.Cupos == 0)
                     {
+                     Console.WriteLine("NO HAY CUPOS");
+                     Console.ReadLine();
+                    }
+                    else 
+                    {
+                        Console.WriteLine("Decea matricular su clase (s/n): ");
+                        matricular= Console.ReadLine();
+                        if (matricular.ToLower() == "s")
                         informatica.Cupos--;
                         Console.WriteLine("Se ha matriculado exitosamente");
                         matriculadosInformatica++ ;
-                   
-                    }
-                    else if (informatica.Cupos == 0)
-                    {
-                     Console.WriteLine("NO HAY CUPOS");
-                    }
                         Console.ReadLine();
+                    }
                 }
         }
 
 
     }
+    else
+    {
+        Console.WriteLine("DEPARTAMENTO NO ECONTRADO");
+        Console.WriteLine("=========================");
+        Console.ReadLine();
+    }
 Console.ReadLine();
 }
-    else if (cuenta == "20172000556" ||cuenta == "20192000545" ||cuenta == "20202000355" ||cuenta == "20132000565" ||cuenta == "20012000255"||cuenta == "20182000055"||cuenta == "20192000975"||cuenta == "20202000565"||cuenta == "20192000542"||cuenta == "20212000576")
+else if (cuenta == "20172000556" ||cuenta == "20192000545" ||cuenta == "20202000355" ||cuenta == "20132000565" ||cuenta == "20012000255"||cuenta == "20182000055"||cuenta == "20192000975"||cuenta == "20202000565"||cuenta == "20192000542"||cuenta == "20212000576")
     {
-           Console.Clear();
+        Console.Clear();
         Console.WriteLine("================================================");
         Console.WriteLine("         BIENVENIDO ADICIONA TU CLASE");
         Console.WriteLine("================================================");
@@ -287,30 +296,32 @@ Console.ReadLine();
         departamento=Console.ReadLine();
 if (departamento.ToLower() == "administracion")
     {
-    Console.Clear();
     Console.WriteLine("Ingrese el condigo de su clase:");
-            codigo=Console.ReadLine();
+    codigo=Console.ReadLine();
     foreach (var administracion in ListaAdministracion)
         {
             if(administracion.Codigo==codigo)
             {
             
+                    Console.WriteLine("ADICIONANDO TU CLASE");
+                    Console.WriteLine("====================");
                     Console.WriteLine("Asignatura: "+administracion.Nombre+" Horario: "+administracion.Hora);
                     Console.WriteLine("Cupos Disponibles: "+administracion.Cupos);
-                    Console.WriteLine("Decea matricular su clase (s/n): ");
-                    matricular= Console.ReadLine();
-                    if (matricular.ToLower() == "s")
-                    {
-                        administracion.Cupos--;
-                        Console.WriteLine("Se ha matriculado exitosamente");
-                        matriculadosAdministracion++;
-                    }
-                    else if (administracion.Cupos == 0)
+                    if (administracion.Cupos == 0)
                     {
                      Console.WriteLine("NO HAY CUPOS");
                      Console.ReadLine();
                     }
-                    Console.ReadLine();
+                    else 
+                    {
+                        Console.WriteLine("Decea matricular su clase (s/n): ");
+                        matricular= Console.ReadLine();
+                        if (matricular.ToLower() == "s")
+                        administracion.Cupos--;
+                        Console.WriteLine("Se ha matriculado exitosamente");
+                        matriculadosAdministracion++;
+                        Console.ReadLine();
+                    }
             }
            
        }
@@ -318,7 +329,7 @@ if (departamento.ToLower() == "administracion")
     }
     else if (departamento.ToLower() == "economia")
     {
-        double MatriculadosEconomia=0;
+        
         Console.WriteLine("Ingrese el condigo de su clase:");
         codigo=Console.ReadLine();
         foreach (var economia in ListaEconomia)
@@ -328,28 +339,37 @@ if (departamento.ToLower() == "administracion")
                     Console.Clear();
                     Console.WriteLine("Asignatura: "+economia.Nombre+" Horario: "+economia.Hora);
                     Console.WriteLine("Cupos Disponibles: "+economia.Cupos);
-                    Console.WriteLine("Decea matricular su clase (s/n): ");
-                    matricular= Console.ReadLine();
-                    if (matricular.ToLower() == "s")
-                    {
-                        economia.Cupos--;
-                        Console.WriteLine("Se ha matriculado exitosamente");
-                        MatriculadosEconomia++;
-                   
-                    }
-                    else if (economia.Cupos == 0)
+                    if (economia.Cupos == 0)
                     {
                      Console.WriteLine("NO HAY CUPOS");
+                     Console.ReadLine();
                     }
+                    else 
+                    {
+                        Console.WriteLine("Decea matricular su clase (s/n): ");
+                        matricular= Console.ReadLine();
+                        if (matricular.ToLower() == "s")
+                        economia.Cupos--;
+                        matriculadosEconomia++;
+                        Console.WriteLine("Se ha matriculado exitosamente");
                         Console.ReadLine();
+                    }
+            Console.ReadLine();        
             }
        }
         
     }
-    }
-    else
+else if(departamento.ToLower() == "informatica")
     {
-        Console.WriteLine("\aNO ENCONTRADO");
+        Console.WriteLine("SIN ACESSO AL DEPARTAMENTO DE INFORMATICA");
+        Console.WriteLine("=========================================");
+        Console.ReadLine();
+    }
+    }
+else
+    {
+        Console.WriteLine("\aUSUARIO NO ENCONTRADO");
+        Console.ReadLine();
     }
 
 }
@@ -361,10 +381,10 @@ public void TotalMatriculado()
     Console.WriteLine("=====================================================");
     Console.WriteLine("");
     Console.WriteLine("Matriculados en el departamento de administracion: "+matriculadosAdministracion);
-    Console.WriteLine("Matriculados en el departamento de economia: "+ MatriculadosEconomia);
+    Console.WriteLine("Matriculados en el departamento de economia: "+ matriculadosEconomia);
     Console.WriteLine("Matriculados en el departamento de informatica: "+matriculadosInformatica);
     Console.WriteLine("");
-    Console.WriteLine("El total de alumno matriculados para el periodo son: "+(matriculadosAdministracion+MatriculadosEconomia+matriculadosInformatica));
+    Console.WriteLine("El total de alumno matriculados para el periodo son: "+(matriculadosAdministracion+matriculadosEconomia+matriculadosInformatica));
     Console.ReadLine();
 }
     }

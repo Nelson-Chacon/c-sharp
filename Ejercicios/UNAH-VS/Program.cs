@@ -11,6 +11,8 @@ namespace UNAH_VS
             ListaUsuarios b= new ListaUsuarios();
             while (true)
             {
+            Console.BackgroundColor = ConsoleColor.Black;
+            Console.ForegroundColor = ConsoleColor.DarkRed;
             Console.Clear();
             Console.WriteLine("===========================");
             Console.WriteLine("     MENU PRINCIPAL");
@@ -27,22 +29,34 @@ namespace UNAH_VS
             switch (opcion)
             {
                 case "1":
+
                 {
+                    Console.BackgroundColor = ConsoleColor.White;
+                    Console.ForegroundColor = ConsoleColor.DarkRed;
                     b.listaUsuarios();
                     break;
                 }
                 case "2":
                 {
+
+                    Console.BackgroundColor = ConsoleColor.Green;
+                    Console.ForegroundColor = ConsoleColor.Black;
                     a.ofertaAcademica();
                     break;
                 }
                 case "3":
                 {
+                    Console.BackgroundColor = ConsoleColor.DarkRed;
+                    Console.ForegroundColor = ConsoleColor.Black;
                     a.agregar();;
                     break;
                 }
                 case "4":
+
                 {
+                Console.BackgroundColor = ConsoleColor.Gray;
+                Console.ForegroundColor = ConsoleColor.Blue;
+                
                     a.TotalMatriculado();
                     break;
                 }
